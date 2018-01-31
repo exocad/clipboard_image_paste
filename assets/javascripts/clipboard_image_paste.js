@@ -490,7 +490,7 @@
 
     elements = s.children("input.name");
     elements.attr("name", attachInpId + "[name]").val("");
-    var pictureName = "picture" + attachId + ".png";
+    var pictureName = "exocad-support-" + attachId + ".png";
     elements.attr("value", pictureName).val(pictureName);
 
     // limit user input for attachment file name
