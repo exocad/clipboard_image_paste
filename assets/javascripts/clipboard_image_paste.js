@@ -370,7 +370,7 @@
 
   // Handle paste events
   function pasteHandler(e) {
-    // We need to check if event.clipboardData is supported (Chrome)
+    // We need to check if event.clipboardData is supported (Chrome and Firefox>=50)
     if (hasClipboard && e.clipboardData) {
       // Get the items from the clipboard
       var items = e.clipboardData.items;
