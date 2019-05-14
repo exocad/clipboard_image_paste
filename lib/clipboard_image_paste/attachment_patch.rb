@@ -14,31 +14,27 @@
 
 module AttachmentPatch
   def self.included(base)
-    base.send(:include, InstanceMethods)
+    base.send(:prepend, InstanceMethods)
 
     # Same as typing in the class
     base.class_eval do
       # Send unloadable so it will not be unloaded in development
       unloadable
-
-      #~ alias_method_chain :attach_files, :pasted_images
-      alias_method_chain :save_attachments, :pasted_images
     end
   end
 
   module InstanceMethods
-
     # go through attachments and find keys starting by 100;
     # image attachments are identified by key >= 10001, the keys should be numbers
     # 'cause acts_as_attachable is sorting them according to insertion order
-    def save_attachments_with_pasted_images(attachments, author=User.current)
-      if attachments && attachments.is_a?(Hash)
+	def save_attachments(attachments, author=User.current)
+       if attachments && attachments.respond_to?(:has_key?)
         attachments.each do |key,value|
           next unless key.start_with?('1000')
           value['file'] = PastedImage.new(value.delete('data'), value.delete('name'))
         end
-      end
-      save_attachments_without_pasted_images(attachments, author)
+	  end
+	  super
     end
 
   end
