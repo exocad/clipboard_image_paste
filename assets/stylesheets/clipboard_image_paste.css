@@ -17,8 +17,8 @@
 }
 
 #cbp_instructions {
-  font-size: 80%;
-  height: 2.6em;
+	line-height: 2.6em;
+	height: 2.6em;
 }
 
 #cbp_panel_box {

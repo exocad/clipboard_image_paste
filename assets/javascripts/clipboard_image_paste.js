@@ -316,8 +316,8 @@
       $("#cbp_instructions").html(cbImagePaste.cbp_txt_print);
     }
 
-    $("#cbp_instructions").animate({backgroundColor: "#FF8000"}, "slow");
-    $("#cbp_instructions").animate({backgroundColor: "white"}, 2000);
+    // $("#cbp_instructions").animate({backgroundColor: "#FF8000"}, "slow");
+    // $("#cbp_instructions").animate({backgroundColor: "white"}, 2000);
   };
 
 
