@@ -15,12 +15,6 @@
 module AttachmentPatch
   def self.included(base)
     base.send(:prepend, InstanceMethods)
-
-    # Same as typing in the class
-    base.class_eval do
-      # Send unloadable so it will not be unloaded in development
-      unloadable
-    end
   end
 
   module InstanceMethods
